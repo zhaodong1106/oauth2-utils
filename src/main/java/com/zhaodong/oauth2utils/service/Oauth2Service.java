@@ -65,6 +65,7 @@ public class Oauth2Service {
             }
             // Re-store the access token in case the authentication has changed
             tokenUtils.storeAccessToken(accessToken,userVo); //刷新accessToken
+            tokenUtils.storeRefreshToken(accessToken.getRefreshTokenValue(),userVo);
             return accessToken;
         }
         UUID accessTokenNew = UUID.randomUUID();
