@@ -4,8 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhaodong.oauth2utils.base.Status;
 import com.zhaodong.oauth2utils.exceptions.Oauth2Exception;
+import com.zhaodong.oauth2utils.service.UserService;
 import com.zhaodong.oauth2utils.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.connection.RedisStringCommands;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -27,10 +29,10 @@ public class TokenUtils {
 
     @Autowired
     private UserService userService;
-
-    private int accessTokenValidatySeconds=60 * 10; //default 1 hour
-
-    private int refreshTokenValidatySeconds=60 * 60 * 24 * 5; //default 1 day
+    @Value("${oauth2.accesstoken.expired:600}")
+    private int accessTokenValidatySeconds; //default 10 minutes(60 * 10)
+    @Value("${oauth2.refreshtoken.expired:86400}")
+    private int refreshTokenValidatySeconds; //default 1 day(60 * 60 * 24 * 1)
 
     private static  final String ACCESS_TO_AUTH_PREFIX="access_to_auth:";
     private static  final String USERNAME_TO_ACCESS_PREFIX="username_to_access:";
