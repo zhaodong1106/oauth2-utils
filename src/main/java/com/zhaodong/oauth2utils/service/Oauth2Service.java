@@ -63,6 +63,7 @@ public class Oauth2Service {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            // Re-store the access token in case the authentication has changed
             tokenUtils.storeAccessToken(accessToken,userVo); //刷新accessToken
             return accessToken;
         }
@@ -94,7 +95,7 @@ public class Oauth2Service {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-//            this.storeAccessToken(accessToken,userVo); //刷新accessToken
+//                tokenUtils.storeAccessToken(accessToken,userVo); //刷新accessToken
                 return accessToken;
             }
         }
