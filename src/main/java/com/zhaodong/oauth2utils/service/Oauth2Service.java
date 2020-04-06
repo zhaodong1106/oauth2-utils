@@ -63,7 +63,7 @@ public class Oauth2Service {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-//            this.storeAccessToken(accessToken,userVo); //刷新accessToken
+            tokenUtils.storeAccessToken(accessToken,userVo); //刷新accessToken
             return accessToken;
         }
         UUID accessTokenNew = UUID.randomUUID();
