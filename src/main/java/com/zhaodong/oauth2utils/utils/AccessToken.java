@@ -2,7 +2,6 @@ package com.zhaodong.oauth2utils.utils;
 
 /**
  * @author zhaodong
- * @date 2019/11/29
  */
 public class AccessToken {
     private String accessTokenValue;

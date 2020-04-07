@@ -6,7 +6,6 @@ import java.security.SecureRandom;
 
 /**
  * @author zhaodong
- * @date 2019/11/19
  */
 public class BCrypt {
     // BCrypt parameters

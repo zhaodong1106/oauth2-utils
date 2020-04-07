@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 
 /**
  * @author zhaodong
- * @date 2019/11/19
  */
 @Component
 public class BCryptPasswordEncoder {
